@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Kategorie</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Wybierz kategorie</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+        	<div class="row">
+        		<center>
+        			<div class="col-8">
+        				<br/><br/>
+                        <div style="border: 1px solid black; padding: 10px;">
+    <ul style="list-style-type: none; padding: 0;">
+        {% for category in categories %}
+            <li style="margin-bottom: 2px;"><a href="{% url 'category' category %}" style="color: black; text-decoration: none;">{{ category }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        			</div>
+        		</center>
+        	</div>
+        </div>
+
+{% endblock %}
