@@ -19,18 +19,16 @@
         				<br/><br/>
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
-
-  <div class="mb-3">
-
+<div style="border:solid; border-color: #198754; border-width: 2px; height: 250px; width: 350px; border-radius: 3%;">
+  <div class="mb-3" style="width: 300px; margin-top:72px;">
     <input type="text" class="form-control" name="username" placeholder="Wprowadź swoją nazwę użytkownika">
-
   </div>
-  <div class="mb-3">
-
+  <div class="mb-3" style="width: 300px">
     <input type="password" class="form-control" name="password" placeholder="Wprowadź swoje hasło">
   </div>
+</div>
   <br/><br/>
-  <button type="submit" class="btn btn-secondary">Zaloguj się</button>
+  <button style="background-color: #198754;" type="submit" class="btn btn-secondary">Zaloguj się</button>
 </form>
 
 <br/><br/>

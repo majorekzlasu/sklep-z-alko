@@ -1,6 +1,6 @@
 <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
+        <nav style="border-bottom: #2c3034; border-bottom:solid; background-color: whitesmoke " class="navbar navbar-expand-lg navbar-light" >
+            <div class="container px-4 px-lg-2">
                 <a class="navbar-brand" href="{% url 'home' %}">Menelowe 24/7 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -10,25 +10,24 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">O nas</a></li>
 
             {% if user.is_authenticated %}
-              
    <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'update_user' %}">Twój profil</a></li>
                 <li><hr class="dropdown-divider" /></li>
-<li><a class="dropdown-item" href="{% url 'update_info'  %}">Info Profil</a></li>
+                <li><a class="dropdown-item" href="{% url 'update_info'  %}">Info Profil</a></li>
                             </ul>
                         </li>
             {% if user.is_superuser %}
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Admin</a></li>
               <li class="nav-item dropdown">
-            
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Zamówienia</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'shipped_dash' %}">Wysłane zamówienia</a></li>
                 <li><hr class="dropdown-divider" /></li>
-<li><a class="dropdown-item" href="{% url 'not_shipped_dash'  %}">Nie wysłane zamówienia</a></li>
-                            </ul>
-                        </li>
+                <li><a class="dropdown-item" href="{% url 'not_shipped_dash'  %}">Nie wysłane zamówienia</a></li>
+                            </ul></li>
+
             {% endif %}
 
 
@@ -40,27 +39,16 @@
 
             {% endif %}
 
-                        
-
-
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategorie</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'category_summary' %}">Wszystkie produkty</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-
-                                <li><a class="dropdown-item" href="{% url 'category' 'Giny' %}">Giny</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Szampany' %}">Szampany</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Rumy' %}">Rumy</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Whisky' %}">Whisky</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Wódki' %}">Wódki</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Piwa' %}">Piwa</a></li>
-
-
-
-                            </ul>
-                        </li>
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategorie</a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{% url 'category_summary' %}">Wszystkie produkty</a></li>
+        <li><hr class="dropdown-divider" /></li>
+{% for category in categories %}
+    <li><a class="dropdown-item" href="{% url 'category' category.name %}">{{ category.name }}</a></li>
+{% endfor %}
+    </ul>
+</li>
                     </ul>
                     <form class="d-flex">
 
@@ -71,7 +59,7 @@
 </span></a>
 
 
-                        
+
                     </form>
                 </div>
             </div>

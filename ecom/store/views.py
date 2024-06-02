@@ -14,6 +14,9 @@ from django.db.models import Q
 import json
 from cart.cart import Cart
 
+from django.shortcuts import render
+from .models import Category
+
 
 def search(request):
 	# Determine if they filled out the form
@@ -23,7 +26,7 @@ def search(request):
 		searched = Product.objects.filter(Q(name__icontains=searched) | Q(description__icontains=searched))
 		# Test for null
 		if not searched:
-			messages.success(request, "That Product Does Not Exist...Please try Again.")
+			messages.success(request, "Ten produkt nie istnieje!")
 			return render(request, "search.html", {})
 		else:
 			return render(request, "search.html", {'searched':searched})
@@ -48,11 +51,11 @@ def update_info(request):
 			# Save shipping form
 			shipping_form.save()
 
-			messages.success(request, "Your Info Has Been Updated!!")
+			messages.success(request, "Informacje o twoim koncie zostały zapisane...")
 			return redirect('home')
 		return render(request, "update_info.html", {'form':form, 'shipping_form':shipping_form})
 	else:
-		messages.success(request, "You Must Be Logged In To Access That Page!!")
+		messages.success(request, "Musisz być zalogowany, aby uzyskać dostęp do tej strony...")
 		return redirect('home')
 
 
@@ -66,7 +69,7 @@ def update_password(request):
 			# Is the form valid
 			if form.is_valid():
 				form.save()
-				messages.success(request, "Your Password Has Been Updated...")
+				messages.success(request, "Zmieniono hasło...")
 				login(request, current_user)
 				return redirect('update_user')
 			else:
@@ -77,7 +80,7 @@ def update_password(request):
 			form = ChangePasswordForm(current_user)
 			return render(request, "update_password.html", {'form':form})
 	else:
-		messages.success(request, "You Must Be Logged In To View That Page...")
+		messages.success(request, "Musisz być zalogowany, aby uzyskać dostęp do tej strony...")
 		return redirect('home')
 def update_user(request):
 	if request.user.is_authenticated:
@@ -88,11 +91,11 @@ def update_user(request):
 			user_form.save()
 
 			login(request, current_user)
-			messages.success(request, "User Has Been Updated!!")
+			messages.success(request, "Zaktualizowano informacje o koncie...")
 			return redirect('home')
 		return render(request, "update_user.html", {'user_form':user_form})
 	else:
-		messages.success(request, "You Must Be Logged In To Access That Page!!")
+		messages.success(request, "Musisz być zalogowany, aby uzyskać dostęp do tej strony...")
 		return redirect('home')
 
 
@@ -110,7 +113,7 @@ def category(request, foo):
 		products = Product.objects.filter(category=category)
 		return render(request, 'category.html', {'products':products, 'category':category})
 	except:
-		messages.success(request, ("That Category Doesn't Exist..."))
+		messages.success(request, ("Ta kategoria nie istnieje..."))
 		return redirect('home')
 
 
@@ -120,8 +123,10 @@ def product(request,pk):
 
 
 def home(request):
-	products = Product.objects.all()
-	return render(request, 'home.html', {'products':products})
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    print(categories)
+    return render(request, 'home.html', {'categories': categories, 'products': products})
 
 
 def about(request):
@@ -150,10 +155,10 @@ def login_user(request):
 				for key,value in converted_cart.items():
 					cart.db_add(product=key, quantity=value)
 
-			messages.success(request, ("You Have Been Logged In!"))
+			messages.success(request, ("Zostałeś zalogowany..."))
 			return redirect('home')
 		else:
-			messages.success(request, ("There was an error, please try again..."))
+			messages.success(request, ("Błędne dane logowania..."))
 			return redirect('login')
 
 	else:
@@ -162,7 +167,7 @@ def login_user(request):
 
 def logout_user(request):
 	logout(request)
-	messages.success(request, ("You have been logged out...Thanks for stopping by..."))
+	messages.success(request, ("Zostałeś wylogowany..."))
 	return redirect('home')
 
 
@@ -178,10 +183,10 @@ def register_user(request):
 			# log in user
 			user = authenticate(username=username, password=password)
 			login(request, user)
-			messages.success(request, ("Username Created - Please Fill Out Your User Info Below..."))
+			messages.success(request, ("Zarejestrowano..."))
 			return redirect('update_info')
 		else:
-			messages.success(request, ("Whoops! There was a problem Registering, please try again..."))
+			messages.success(request, ("Błąd rejestracji..."))
 			return redirect('register')
 	else:
 		return render(request, 'register.html', {'form':form})
