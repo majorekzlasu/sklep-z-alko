@@ -1,70 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="53ed97c8-fd8e-4360-8fee-d976bf09eb12" name="Changes" comment="" />
+    <list default="true" id="c46a7eea-eeb8-4eeb-a37b-a30e31cdbe20" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ecom/cart/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/cart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/templates/cart_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/cart/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/category_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/update_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/update_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecom/store/templates/update_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ecom/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ecom/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ecom/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ecom/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ecom/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ecom/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ecom/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ecom/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/1481206519.522.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/1482187211.125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/1631797088.8575.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/1695120747.5834.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/AH-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/BALLANTINES-FINEST-BLENDED-WHISKY-05L.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/calo-peach.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/pol_pl_PIWO-ZUBR-0-5L-PUSZ-SZT-559_1_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/media/uploads/products/zubrowka-biala-wodka-czysta-200-ml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/static/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/static/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/migrations/0002_alter_category_options_product_is_sale_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/migrations/0002_alter_category_options_product_is_sale_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/store/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "maciusmajor"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/majorekzlasu/sklep-z-alko.git",
-    "accountId": "1a656d7d-9ef8-4843-bafb-f18d59f80b64"
-  }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
-  <component name="ProjectId" id="2gmtYAXTFGMmoDFTRmEyzYPZaO7" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Administrator/PycharmProjects/sklep",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "C:/Users/Administrator/Pycharm/ecom",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
-        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
-      </set>
-    </attachedChunks>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Pycharm\ecom" />
+      <recent name="C:\Users\Administrator\Pycharm\ecom\store\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Pycharm\ecom" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="53ed97c8-fd8e-4360-8fee-d976bf09eb12" name="Changes" comment="" />
-      <created>1716314625771</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1716314625771</updated>
-      <workItem from="1716314626887" duration="58000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
 </project>

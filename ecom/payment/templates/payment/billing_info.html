@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Informacje rachunkowe</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Wprowadź dane dotyczące płatności</p>
+                </div>
+            </div>
+        </header>
+        <br/>
+        <div class="container">
+            <div class="row">
+                
+                    <div class="col-md-6 offset-md-3">
+          <div class="card">
+          <div class="card-header">
+              Podsumowanie zamowienia
+          </div>
+          <div class="card-body">
+            {% for product in cart_products %}
+                {{ product.name }}: 
+                    {% if product.is_sale %}
+                        zł{{ product.sale_price }}
+                    {% else %}
+                        zł{{ product.price }}
+                {% endif %}
+
+                <br/>
+                <small>Ilość:
+                {% for key, value in quantities.items %}
+                    {% if key == product.id|slugify %}
+                        {{ value }}
+                    {% endif %}
+                {% endfor %}</small>
+                <br/><br/>
+
+            {% endfor %}
+            Całość:  zł{{ totals }}
+            <br/><br/>
+            <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Zaktualizuj produkty</a>
+          </div>
+        </div>
+<br/><br/>
+<div class="card">
+  <div class="card-header">
+    informacje o dostawie
+  </div>
+  <div class="card-body">
+    
+    Imię: {{ shipping_info.shipping_full_name }}<br/>
+    Email: {{ shipping_info.shipping_email }}<br/>
+    Addres: {{ shipping_info.shipping_address1 }}<br/>
+    Addres 2: {{ shipping_info.shipping_address2 }}<br/>
+    Miasto: {{ shipping_info.shipping_city }}<br/>
+    Województwo: {{ shipping_info.shipping_state }}<br/>
+    Kod pocztowy: {{ shipping_info.shipping_zipcode }}<br/>
+    Kraj: {{ shipping_info.shipping_country }}<br/>
+    <br/>
+    <a href="{% url 'checkout' %}" class="btn btn-outline-secondary">Zaktualizuj informacje o wysyłce</a>
+
+  </div>
+</div>
+<br/><br/>
+
+<div class="card">
+  <div class="card-header">
+    Informacje rachunkowe
+  </div>
+  <div class="card-body">
+    <form method="POST" action="{% url 'process_order' %}">
+      {% csrf_token %}
+    {{ billing_form.as_p }}
+    
+  </div>
+</div>
+<br/>
+
+
+
+<button type="submit" class="btn btn-secondary">
+    Zapłać teraz
+</button>
+</form>
+<br/><br/>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
