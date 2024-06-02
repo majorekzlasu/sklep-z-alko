@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Product, Category, Profile
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
@@ -35,28 +36,28 @@ def search(request):
 
 
 def update_info(request):
-	if request.user.is_authenticated:
-		# Get Current User
-		current_user = Profile.objects.get(user__id=request.user.id)
-		# Get Current User's Shipping Info
-		shipping_user = ShippingAddress.objects.get(user__id=request.user.id)
-		
-		# Get original User Form
-		form = UserInfoForm(request.POST or None, instance=current_user)
-		# Get User's Shipping Form
-		shipping_form = ShippingForm(request.POST or None, instance=shipping_user)		
-		if form.is_valid() or shipping_form.is_valid():
-			# Save original form
-			form.save()
-			# Save shipping form
-			shipping_form.save()
+    if request.user.is_authenticated:
+        # Get Current User
+        current_user = Profile.objects.get(user__id=request.user.id)
+        # Get Current User's Shipping Info or create a new one if it does not exist
+        shipping_user, created = ShippingAddress.objects.get_or_create(user__id=request.user.id)
 
-			messages.success(request, "Informacje o twoim koncie zostały zapisane...")
-			return redirect('home')
-		return render(request, "update_info.html", {'form':form, 'shipping_form':shipping_form})
-	else:
-		messages.success(request, "Musisz być zalogowany, aby uzyskać dostęp do tej strony...")
-		return redirect('home')
+        # Get original User Form
+        form = UserInfoForm(request.POST or None, instance=current_user)
+        # Get User's Shipping Form
+        shipping_form = ShippingForm(request.POST or None, instance=shipping_user)
+        if form.is_valid() or shipping_form.is_valid():
+            # Save original form
+            form.save()
+            # Save shipping form
+            shipping_form.save()
+
+            messages.success(request, "Informacje o twoim koncie zostały zapisane...")
+            return redirect('home')
+        return render(request, "update_info.html", {'form':form, 'shipping_form':shipping_form})
+    else:
+        messages.success(request, "Musisz być zalogowany, aby uzyskać dostęp do tej strony...")
+        return redirect('home')
 
 
 
